@@ -1,0 +1,54 @@
+<nav class="navbar navbar-default" role="navigation">
+  <div class="container">
+    <div class="navbar-header">
+      <div class="container" ><center><h2>Book search library</h2></center></div>
+      <br>
+      <a class="navbar-brand" href="/"></a>
+    </div>
+  </div>
+</nav>
+
+  <div id="container">
+    <div id="addbox" style="margin-left:10em;margin-right: 12em;background-color: #F5F5DC;" >
+      <br>
+      <h3 style="text-align: center;">Add a book</h3>
+      <%= form_tag("/books/add", :method=>"post") do %>
+          <%=image_tag("book.png", height: '200', width: '200',:align=> "right")%>
+          &nbsp&nbspAccess No: <br>&nbsp<%= text_field_tag(:b_access_no) %> <br><br>
+          &nbsp&nbspTitle: <br>&nbsp<%= text_field_tag(:b_title) %> <br><br>
+          &nbsp&nbspEdition: <br>&nbsp<%= text_field_tag(:b_edition) %> <br><br>
+          &nbsp&nbspPublisher: <br>&nbsp<%= text_field_tag(:b_publisher) %> <br><br>
+          <center><br><%= submit_tag("Add Book") %></center>
+      <%end%><br>
+    </div>
+
+    <div id="addbox" style="margin-left:10em;margin-right: 12em;background-color: #FFFACD;">
+      <br>
+      <%=image_tag("search.png", height: '100', width: '100',:align=> "left")%>
+      <h3 style="text-align: center;">Search for a book</h3>
+      <%= form_tag("/books/search", :method=>"post") do %>
+          <center>Title: <%= text_field_tag(:bookTitle) %> </center><br>
+          <center><br><%= submit_tag("Search") %></center>
+          <br><br>
+      <%end%>
+    </div>
+
+    <div id="showbox" style="margin-left:10em;margin-right: 12em;background-color: #E1E1BD;" align="center">
+      <br>
+      <%=image_tag("book.png", height: '100', width: '100')%>
+      <h5>Show all books</h5>
+      <%= form_tag("/books/show", :method=>"post") do %>
+          <center><%= submit_tag("Show All") %></center>
+      <%end%><br><br>
+    </div>
+
+    <div id="delbox" style="margin-left:10em;margin-right: 12em;background-color: #E1E1BD;" align="center">
+      <br>
+      <%=image_tag("delete.png", height: '100', width: '100')%>
+      <h5 >Delete book by Title</h5>
+      <%= form_tag("/books/del", :method=>"post") do %>
+          Title: <%= text_field_tag(:BookT) %> <br>
+          <br><%= submit_tag("Delete") %>
+      <%end%><br><br>
+    </div>
+

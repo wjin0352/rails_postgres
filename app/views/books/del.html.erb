@@ -1,0 +1,14 @@
+<div id="container">
+  <%=image_tag("delete.png", height: '135', width: '105', align:'left')%><br>
+  <div id="srchbox" style="width: 20em; margin-left:8em;margin-right: 10em;background-color: #87CEEB; ">
+    <% @t=Book.find_by_title(params[:BookT])%>
+    <% if @t.nil? %>
+        <h4>Record Not Found ... </h4>
+    <% else %>
+        <% @t.destroy %>
+        <h4>Deleted ... </h4>
+    <% end %>
+  </div>
+</div>
+<br><br>
+<a href="/">Back</a>

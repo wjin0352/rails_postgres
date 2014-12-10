@@ -1,0 +1,34 @@
+<h2 align="center">Search Result</h2>
+<div id="container">
+  <%=image_tag("search.png", height: '135', width: '105', align:'left')%><br>
+  <div id="srchbox" style="width: 20em; margin-left:8em;margin-right: 10em;background-color: #87CEEB; ">
+    <table border="1" >
+      <% @t=Book.find_by_title(params[:bookTitle])%>
+      <tr>
+        <th>Access No</th>
+        <th>Title</th>
+        <th>Edition</th>
+        <th>Publisher</th>
+      </tr>
+      <% if @t.nil? %>
+          <tr>
+            <td>Not Found</td>
+            <td>Not Found</td>
+            <td>Not Found</td>
+            <td>Not Found</td>
+          </tr>
+      <% else %>
+          <tr>
+            <td><%= @t.access_no %></td>
+            <td><%= @t.title %></td>
+            <td><%= @t.edition %></td>
+            <td><%= @t.publisher %></td>
+          </tr>
+      <% end %>
+
+    </table>
+
+  </div>
+</div>
+<br><br>
+<a href="/">Back</a>
